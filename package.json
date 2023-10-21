@@ -2,8 +2,8 @@
   "name": "coffeemathlib",
   "version": "1.1.0",
   "description": "A library for calculations related to coffee",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./RatioCalculator.js",
+  "types": "./RatioCalculator.d.ts",
   "scripts": {
     "test": "vitest",
     "prepublish": "tsc"
