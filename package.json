@@ -10,7 +10,6 @@
     "bumpPatch": "npm version patch",
     "bumpMinor": "npm version minor",
     "bumpMajor": "npm version major",
-    "publish": "npm publish",
     "bumpPatchPushPublish": "npm version patch && git push && npm publish",
     "bumpMinorPushPublish": "npm version minor && git push && npm publish",
     "bumpMajorPushPublish": "npm version major && git push && npm publish"
