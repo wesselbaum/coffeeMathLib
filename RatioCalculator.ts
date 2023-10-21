@@ -59,8 +59,9 @@ export function calculateGroundsFromCoffee(
   coffeeMl: number,
   ratioConf: RatioConf
 ): number {
-  return (
-    (coffeeMl / ratioConf.relationship.waterMl) * ratioConf.relationship.coffeeG
+  return calculateGroundsFromWater(
+    calculateWaterFromCoffee(coffeeMl, ratioConf),
+    ratioConf
   );
 }
 
@@ -74,9 +75,8 @@ export function calculateGroundsFromWater(
   waterMl: number,
   ratioConf: RatioConf
 ): number {
-  return calculateGroundsFromCoffee(
-    calculateCoffeeFromWater(waterMl, ratioConf),
-    ratioConf
+  return (
+    (waterMl / ratioConf.relationship.waterMl) * ratioConf.relationship.coffeeG
   );
 }
 
@@ -84,9 +84,8 @@ export function calculateWaterFromGrounds(
   groundsG: number,
   ratioConf: RatioConf
 ): number {
-  return calculateWaterFromCoffee(
-    calculateCoffeeFromGrounds(groundsG, ratioConf),
-    ratioConf
+  return (
+    (groundsG / ratioConf.relationship.coffeeG) * ratioConf.relationship.waterMl
   );
 }
 
@@ -94,7 +93,8 @@ export function calculateCoffeeFromGrounds(
   groundsG: number,
   ratioConf: RatioConf
 ): number {
-  return (
-    (groundsG * ratioConf.relationship.waterMl) / ratioConf.relationship.coffeeG
+  return calculateCoffeeFromWater(
+    calculateWaterFromGrounds(groundsG, ratioConf),
+    ratioConf
   );
 }
